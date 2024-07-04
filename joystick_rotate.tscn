@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cusru8cogrbmp"]
+
+[ext_resource type="Script" path="res://joystick_rotate.gd" id="1_3mec1"]
+[ext_resource type="Texture2D" uid="uid://dmuulcsxugpa2" path="res://New folder/joystick_base_outline.png" id="2_dtoym"]
+[ext_resource type="Texture2D" uid="uid://dd7wkwdqgb2wf" path="res://New folder/joystick_tip.png" id="3_vn3l6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dpakl"]
+radius = 64.1249
+
+[node name="Joystick_Rotate" type="Area2D"]
+position = Vector2(1008, 511)
+script = ExtResource("1_3mec1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dpakl")
+
+[node name="BigCircle" type="Sprite2D" parent="."]
+texture = ExtResource("2_dtoym")
+
+[node name="SmallCircle" type="Sprite2D" parent="BigCircle"]
+position = Vector2(2, 2)
+scale = Vector2(0.67, 0.65)
+texture = ExtResource("3_vn3l6")

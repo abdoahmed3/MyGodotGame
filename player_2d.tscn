@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://druhy805yc56n"]
+
+[ext_resource type="Script" path="res://Player2D.gd" id="1_vhnfs"]
+[ext_resource type="Texture2D" uid="uid://wbfm227r2gxx" path="res://New folder/survivor-move_shotgun_14.png" id="2_3osys"]
+[ext_resource type="Script" path="res://Joystick1.gd" id="3_ipk1o"]
+[ext_resource type="Texture2D" uid="uid://dmuulcsxugpa2" path="res://New folder/joystick_base_outline.png" id="4_yyf66"]
+[ext_resource type="Texture2D" uid="uid://dd7wkwdqgb2wf" path="res://New folder/joystick_tip.png" id="5_2ge32"]
+[ext_resource type="Script" path="res://joystick_rotate.gd" id="6_c05bq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fukiw"]
+size = Vector2(116, 67)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_grbuc"]
+radius = 64.0312
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dpakl"]
+radius = 64.1249
+
+[node name="Player2D" type="CharacterBody2D"]
+position = Vector2(607, 334)
+script = ExtResource("1_vhnfs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-13, 1)
+shape = SubResource("RectangleShape2D_fukiw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-6.22035, -5.83429)
+scale = Vector2(0.461472, 0.512954)
+texture = ExtResource("2_3osys")
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Joystick" type="Area2D" parent="UI"]
+position = Vector2(116, 531)
+script = ExtResource("3_ipk1o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/Joystick"]
+shape = SubResource("CircleShape2D_grbuc")
+
+[node name="BigCircle" type="Sprite2D" parent="UI/Joystick"]
+texture = ExtResource("4_yyf66")
+
+[node name="SmallCircle" type="Sprite2D" parent="UI/Joystick/BigCircle"]
+position = Vector2(1, 0.999998)
+scale = Vector2(0.61, 0.65)
+texture = ExtResource("5_2ge32")
+
+[node name="Joystick_Rotate" type="Area2D" parent="UI"]
+position = Vector2(1030, 527)
+script = ExtResource("6_c05bq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/Joystick_Rotate"]
+shape = SubResource("CircleShape2D_dpakl")
+
+[node name="BigCircle" type="Sprite2D" parent="UI/Joystick_Rotate"]
+texture = ExtResource("4_yyf66")
+
+[node name="SmallCircle" type="Sprite2D" parent="UI/Joystick_Rotate/BigCircle"]
+position = Vector2(2, 2)
+scale = Vector2(0.67, 0.65)
+texture = ExtResource("5_2ge32")
